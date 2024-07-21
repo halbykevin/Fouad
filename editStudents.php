@@ -40,6 +40,7 @@ include 'db_connection.php';
                     <td>" . $row['current_song'] . "</td>
                     <td>
                         <button class='editButton styled-button' data-id='" . $row['id'] . "'>Edit</button>
+                        <button class='deleteButton styled-button' data-id='" . $row['id'] . "'>Delete</button>
                     </td>
                 </tr>";
             }
@@ -125,6 +126,26 @@ include 'db_connection.php';
                     
                     editModal.style.display = "block";
                 });
+            }
+        }
+
+        // Handle delete button clicks
+        var deleteButtons = document.getElementsByClassName("deleteButton");
+        for (var i = 0; i < deleteButtons.length; i++) {
+            deleteButtons[i].onclick = function() {
+                var studentId = this.getAttribute("data-id");
+                
+                if (confirm("Are you sure you want to delete this student?")) {
+                    // Delete student using AJAX
+                    fetch('delete_student.php?id=' + studentId)
+                    .then(response => {
+                        if (response.ok) {
+                            location.reload();
+                        } else {
+                            alert("Failed to delete student");
+                        }
+                    });
+                }
             }
         }
     </script>

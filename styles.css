@@ -55,6 +55,8 @@ h1 {
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     animation: modalopen 0.5s;
+    max-height: 80vh; /* Ensure the modal content doesn't exceed the viewport height */
+    overflow-y: auto; /* Allow vertical scrolling when content overflows */
 }
 
 @keyframes modalopen {
