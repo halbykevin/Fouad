@@ -14,6 +14,7 @@ include 'db_connection.php';
     <h1>Student Management</h1>
     <button id="addStudentBtn" class="styled-button">Add Student</button>
     <button id="editStudentsBtn" class="styled-button">Edit Students</button>
+    <button id="viewDiagramsBtn" class="styled-button">View Diagrams</button>
 
     <!-- Add Student Modal -->
     <div id="addStudentModal" class="modal">
@@ -54,6 +55,7 @@ include 'db_connection.php';
         // Get the buttons that open the modals
         var addBtn = document.getElementById("addStudentBtn");
         var editBtn = document.getElementById("editStudentsBtn");
+        var viewDiagramsBtn = document.getElementById("viewDiagramsBtn");
 
         // Get the <span> elements that close the modals
         var spans = document.getElementsByClassName("close");
@@ -66,6 +68,11 @@ include 'db_connection.php';
         // When the user clicks the edit button, redirect to editStudents.php
         editBtn.onclick = function() {
             window.location.href = 'editStudents.php';
+        }
+
+        // When the user clicks the view diagrams button, redirect to diagrams.php
+        viewDiagramsBtn.onclick = function() {
+            window.location.href = 'diagrams.php';
         }
 
         // When the user clicks on <span> (x), close the modal
